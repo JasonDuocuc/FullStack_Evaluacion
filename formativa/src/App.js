@@ -11,6 +11,8 @@ function App() {
     <div className="App">
       <div className="container">
         <Navbar/>
+        <Banner/>
+        <Informacion/>
 
       </div>
     </div>
