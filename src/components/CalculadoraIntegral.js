@@ -21,171 +21,154 @@ function CalculadoraIntegral() {
   const [garantia, setGarantia] = useState("");
   const [planPago, setPlanPago] = useState("");
   const [tipoPie, setTipoPie] = useState("");
+  
 
   const [valorPie, setValorPie] = useState(null);
 
   const [instalacionBase, setInstalacionBase] = useState(null);
   const [pesoEstimado, setPesoEstimado] = useState(null);
 
-  const resultadoPotenciaPanel = parseInt(potenciaPanel);
-  const resultadoCantidadPanel = parseInt(cantidadPanel);
+  const resultadoPotenciaPanel = parseInt(potenciaPanel) || 0;
+  const resultadoCantidadPanel = parseInt(cantidadPanel) || 0;
 
-  const resultadoInversor = parseInt(inversor);
+  const resultadoInversor = parseInt(inversor) || 0;
 
-  const resultadoBaterias = parseInt(baterias);
-  const resultadoCantidadBaterias = parseInt(cantidadBaterias);
+  const resultadoBaterias = parseInt(baterias) || 0;
+  const resultadoCantidadBaterias = parseInt(cantidadBaterias) || 0;
 
-  const resultadoTipoTecho = parseInt(tipoTecho);
+  const resultadoTipoTecho = parseInt(tipoTecho) || 0;
 
-  const resultadoRegion = parseInt(region);
+  const resultadoRegion = parseInt(region) || 0;
 
-  const resultadoComplejidadInstalacion = parseInt(complejidadInstalacion);
-  const resultadoSubsidio = parseInt(subsidio);
-  const resultadoMetodoEnvio = parseInt(metodoEnvio);
-  const resultadoGarantia = parseInt(garantia);
-  const resultadoPlanPago = parseInt(planPago);
-  const resultadoTipoPie = parseInt(tipoPie);
+  const resultadoComplejidadInstalacion = parseInt(complejidadInstalacion) || 0;
+  const resultadoSubsidio = parseInt(subsidio) || 0;
+  const resultadoMetodoEnvio = parseInt(metodoEnvio) || 0;
+  const resultadoGarantia = parseInt(garantia) || 0;
+  const resultadoPlanPago = parseInt(planPago) || 0;
+  const resultadoTipoPie = parseInt(tipoPie) || 0;
 
-  const resultadoValorPie = parseInt(valorPie);
+  const resultadoValorPie = parseInt(valorPie) || 0;
 
-  const resultadoEstructuraCableado = parseInt(estructuraCableado);
-  const resultadoInstalacionBase = parseInt(instalacionBase);
-  const resultadoPesoEstimado = parseInt(pesoEstimado);
-  // 🔹 FACTORES Y PORCENTAJES BASE
+  const resultadoEstructuraCableado = parseInt(estructuraCableado) || 0;
+  const resultadoInstalacionBase = parseInt(instalacionBase) || 0;
+  const resultadoPesoEstimado = parseInt(pesoEstimado) || 0;
 
-  const porcentajeRecargoPorTecho =
-    resultadoTipoTecho === 1
-      ? 1.05 // Teja/Asfalto
-      : resultadoTipoTecho === 2
-      ? 1.02 // Zinc/Planchas
-      : resultadoTipoTecho === 3
-      ? 1.07 // Hormigón
-      : 1; // valor neutro, no 0 (0 eliminaría el subtotal al multiplicar)
+  const porcentajeRecargoPorTecho = 
+  resultadoTipoTecho === 1 ? 1.05 :
+  resultadoTipoTecho === 2 ? 1.02 :
+  resultadoTipoTecho === 3 ? 1.07 :
+  1;
 
   const baseRegion =
-    resultadoRegion === 1
-      ? 5000
-      : resultadoRegion === 2
-      ? 9000
-      : resultadoRegion === 3
-      ? 10000
-      : resultadoRegion === 4
-      ? 15000
-      : 0;
+  resultadoRegion === 1 ? 5000 :
+  resultadoRegion === 2 ? 9000 :
+  resultadoRegion === 3 ? 10000 :
+  resultadoRegion === 4 ? 15000 :
+  0;
 
   const porcentajeComplejidadInstalacion =
-    resultadoComplejidadInstalacion === 1
-      ? 1.0 // baja = sin aumento
-      : resultadoComplejidadInstalacion === 2
-      ? 1.08 // media = +8%
-      : resultadoComplejidadInstalacion === 3
-      ? 1.15 // alta = +15%
-      : 1.0;
+  resultadoComplejidadInstalacion === 1 ? 1.00 :
+  resultadoComplejidadInstalacion === 2 ? 1.08 :
+  resultadoComplejidadInstalacion === 3 ? 1.15 :
+  1.00;
 
   const porcentajeSubsidioReferencial =
-    resultadoSubsidio === 1
-      ? 0.0 // sin subsidio
-      : resultadoSubsidio === 2
-      ? 0.08 // residencial = 8% de descuento
-      : resultadoSubsidio === 3
-      ? 0.05 // pyme = 5% de descuento
-      : 0.0;
+  resultadoSubsidio === 1 ? 0.00 :
+  resultadoSubsidio === 2 ? 0.08 :
+  resultadoSubsidio === 3 ? 0.05 :
+  0.00;
 
   const porcentajeMetodoEnvio =
-    resultadoMetodoEnvio === 1
-      ? 1.0 // estándar
-      : resultadoMetodoEnvio === 2
-      ? 1.2 // exprés
-      : 1.0;
+  resultadoMetodoEnvio === 1 ? 1.00 :
+  resultadoMetodoEnvio === 2 ? 1.20 :
+  1.00;
 
   const porcentajeGarantiaExtendida =
-    resultadoGarantia === 1
-      ? 1.02
-      : resultadoGarantia === 2
-      ? 1.04
-      : resultadoGarantia === 3
-      ? 1.06
-      : 1.0;
+  resultadoGarantia === 1 ? 1.02 :
+  resultadoGarantia === 2 ? 1.04 :
+  resultadoGarantia === 3 ? 1.06 :
+  1.00;
 
   const porcentajePlanPago =
-    resultadoPlanPago === 1
-      ? 0.0 // contado, sin interés
-      : resultadoPlanPago === 2
-      ? 0.02 // 6 cuotas → 2% mensual
-      : resultadoPlanPago === 3
-      ? 0.015 // 12 cuotas → 1.5% mensual
-      : resultadoPlanPago === 4
-      ? 0.01 // 24 cuotas → 1% mensual
-      : 0.0;
+  resultadoPlanPago === 1 ? 0.00 :
+  resultadoPlanPago === 2 ? 0.02 :
+  resultadoPlanPago === 3 ? 0.015 :
+  resultadoPlanPago === 4 ? 0.01 :
+  0.00;
 
-  // 🔹 CÁLCULOS PRINCIPALES
+  const potenciaEstimada = (resultadoPotenciaPanel * resultadoCantidadPanel) / 1000;
 
-  const potenciaEstimada =
-    (resultadoPotenciaPanel * resultadoCantidadPanel) / 1000;
+  const subtotalEquipos = (resultadoInversor + (resultadoBaterias * resultadoCantidadBaterias) + resultadoEstructuraCableado + (resultadoPotenciaPanel ? resultadoPotenciaPanel * resultadoCantidadPanel : 0)) * porcentajeRecargoPorTecho;
+ // 
 
-  const subtotalEquipos =
-    (resultadoInversor + resultadoBaterias + resultadoEstructuraCableado) *
-    porcentajeRecargoPorTecho;
+  const recargoPorTecho = subtotalEquipos * (porcentajeRecargoPorTecho - 1);
 
-  const recargoPorTecho = subtotalEquipos * (porcentajeRecargoPorTecho - 1); // solo el recargo adicional
-
-  const instalacionFinal =
-    resultadoInstalacionBase * porcentajeComplejidadInstalacion;
+  const instalacionFinal = resultadoInstalacionBase * porcentajeComplejidadInstalacion;
 
   const subsidioFinal = subtotalEquipos * porcentajeSubsidioReferencial;
 
-  const aplicarIVA =
-    (subtotalEquipos + recargoPorTecho - subsidioFinal + instalacionFinal) *
-    0.19; // 19% IVA
+  const aplicarIVA = (((subtotalEquipos + recargoPorTecho) - subsidioFinal) + instalacionFinal) * 0.19;
 
-  const calculoEnvio =
-    (baseRegion + resultadoPesoEstimado * 700) * porcentajeMetodoEnvio;
+  const calculoEnvio = (baseRegion + (resultadoPesoEstimado * 700)) * porcentajeMetodoEnvio;
 
   const calculoGarantia = subtotalEquipos * (porcentajeGarantiaExtendida - 1);
 
-  const totalAntesFinanciamiento =
-    subtotalEquipos +
-    recargoPorTecho -
-    subsidioFinal +
-    instalacionFinal +
-    aplicarIVA +
-    calculoEnvio +
-    calculoGarantia;
-
-  // 🔹 FINANCIAMIENTO
+  const totalAntesFinanciamiento = 
+  (subtotalEquipos + recargoPorTecho - subsidioFinal) + 
+  instalacionFinal + 
+  aplicarIVA + 
+  calculoEnvio + 
+  calculoGarantia;
 
   const calcularPie =
-    resultadoTipoPie === 1 && resultadoValorPie < totalAntesFinanciamiento
-      ? totalAntesFinanciamiento * (resultadoValorPie / 100)
-      : resultadoTipoPie === 2 && resultadoValorPie < totalAntesFinanciamiento
-      ? resultadoValorPie
-      : 0;
+  resultadoTipoPie === 1 && resultadoValorPie < totalAntesFinanciamiento ? totalAntesFinanciamiento * (resultadoValorPie / 100):
+  resultadoTipoPie === 2 && resultadoValorPie < totalAntesFinanciamiento ? resultadoValorPie:
+  0;
 
   const montoFinanciar = totalAntesFinanciamiento - calcularPie;
 
   const interesSimple =
-    montoFinanciar *
-    porcentajePlanPago *
-    (resultadoPlanPago === 2
-      ? 6
-      : resultadoPlanPago === 3
-      ? 12
-      : resultadoPlanPago === 4
-      ? 24
-      : 0);
+  montoFinanciar * porcentajePlanPago * (
+  resultadoPlanPago === 2 ? 6 :
+  resultadoPlanPago === 3 ? 12 :
+  resultadoPlanPago === 4 ? 24 : 0
+  );
 
   const cuota =
-    resultadoPlanPago === 1
-      ? montoFinanciar
-      : resultadoPlanPago === 2
-      ? (montoFinanciar + interesSimple) / 6
-      : resultadoPlanPago === 3
-      ? (montoFinanciar + interesSimple) / 12
-      : resultadoPlanPago === 4
-      ? (montoFinanciar + interesSimple) / 24
-      : 0;
+  resultadoPlanPago === 1 ? montoFinanciar :
+  resultadoPlanPago === 2 ? (montoFinanciar + interesSimple) / 6 :
+  resultadoPlanPago === 3 ? (montoFinanciar + interesSimple) / 12 :
+  resultadoPlanPago === 4 ? (montoFinanciar + interesSimple) / 24 :
+  0;
 
-  // Advertencias para las filas
+ const advertenciaPotencia = potenciaEstimada > 7 && resultadoCantidadBaterias  === 0 ? "Recomendado considerar almacenamiento para estabilidad del sistema": "";
+
+
+
+
+  const botonReset = () => {
+  setPotenciaPanel('');
+  setCantidadPanel('');
+  setInversor('');
+  setBaterias('');
+  setCantidadBaterias('');
+  setEstructuraCableado('');
+  setTipoTecho('');
+  setRegion('');
+  setComplejidadInstalacion('');
+  setSubsidio('');
+  setMetodoEnvio('');
+  setGarantia('');
+  setPlanPago('');
+  setTipoPie('');
+  setValorPie('');
+  setInstalacionBase('');
+  setPesoEstimado('');
+  };
+
+  const totalFinal = montoFinanciar + calcularPie + interesSimple;
+
+
 
   return (
     <section id="demo_calculadora" className="py-5 bg-light text-center">
@@ -196,8 +179,8 @@ function CalculadoraIntegral() {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-lg-6">
+        <div className="row g-4 mt-3" style={{ textAlign: "left" }}>
+          <div className="col-lg-6 ">
             <h5 className="my-3">Resultados</h5>
             <div className="form-group mt-3">
               <label className="form-label" htmlFor="potenciaPanel">
@@ -469,10 +452,30 @@ function CalculadoraIntegral() {
                 onChange={(e) => setPesoEstimado(e.target.value)}
               ></input>
             </div>
+
+            <div className="form-group mt-3" style={{ textAlign: "left" }}>
+              <button
+                type="button"
+                class="btn btn-dark me-2"
+                onClick={botonReset}
+              >
+                Reiniciar
+              </button>
+            </div>
           </div>
 
           <div className="col-lg-6">
             <h5 className="my-3">Resultados</h5>
+
+            {advertenciaPotencia && (
+              <div
+                className="alert alert-danger mt-2"
+                role="alert"
+                style={{ fontWeight: "bold" }}
+              >
+                {advertenciaPotencia}
+              </div>
+            )}
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -483,67 +486,73 @@ function CalculadoraIntegral() {
               <thead>
                 <tr>
                   <th>Potencia estimada</th>
-                  <th>{potenciaEstimada.toLocaleString()}</th>
+                  <th>{"KW " + potenciaEstimada.toLocaleString()}</th>
                 </tr>
               </thead>
               <thead>
                 <tr>
                   <th>Subtotal equipos</th>
-                  <th>{subtotalEquipos.toLocaleString()}</th>
+                  <th>{"$" + subtotalEquipos.toLocaleString()}</th>
                 </tr>
               </thead>
               <thead>
                 <tr>
                   <th>Recargo Techo</th>
-                  <th>{recargoPorTecho.toLocaleString()}</th>
+                  <th>{"$" + recargoPorTecho.toLocaleString()}</th>
                 </tr>
               </thead>
               <thead>
                 <tr>
                   <th>Subsidio</th>
-                  <th>{subsidio.toLocaleString()}</th>
+                  <th>{"$" + subsidioFinal.toLocaleString()}</th>
                 </tr>
               </thead>
               <thead>
                 <tr>
                   <th>Instalacion final</th>
-                  <th>{instalacionFinal.toLocaleString()}</th>
+                  <th>{"$" + instalacionFinal.toLocaleString()}</th>
                 </tr>
               </thead>
               <thead>
                 <tr>
                   <th>IVA 19%</th>
-                  <th>{aplicarIVA.toLocaleString()}</th>
+                  <th>{"$" + aplicarIVA.toLocaleString()}</th>
                 </tr>
               </thead>
               <thead>
                 <tr>
                   <th>Garantia</th>
-                  <th>{garantia.toLocaleString()}</th>
+                  <th>{resultadoGarantia.toLocaleString() + " Meses"} </th>
                 </tr>
               </thead>
               <thead>
                 <tr>
                   <th>Total antes de financiar</th>
-                  <th>{totalAntesFinanciamiento.toLocaleString()}</th>
+                  <th>{"$" + totalAntesFinanciamiento.toLocaleString()}</th>
                 </tr>
               </thead>
               <thead>
                 <tr>
                   <th>Pie</th>
-                  <th>{calcularPie.toLocaleString()}</th>
+                  <th>{"$" + calcularPie.toLocaleString()}</th>
                 </tr>
               </thead>
               <thead>
                 <tr>
                   <th>Interes total</th>
-                  <th>{interesSimple.toLocaleString()}</th>
+                  <th>{"$" + interesSimple.toLocaleString()}</th>
                 </tr>
               </thead>
               <thead>
                 <tr>
                   <th>Cuota</th>
-                  <th>{cuota.toLocaleString()}</th>
+                  <th>{`${
+                    resultadoPlanPago === 1
+                      ? "Contado"
+                      : resultadoPlanPago * 6 +
+                        " cuotas de $" +
+                        cuota.toLocaleString()
+                  }`}</th>
                 </tr>
               </thead>
               <thead>
@@ -552,7 +561,7 @@ function CalculadoraIntegral() {
                     Total final
                   </th>
                   <th style={{ backgroundColor: "lightyellow" }}>
-                    {resultadoPotenciaPanel.toLocaleString()}
+                    {"$" + totalFinal.toLocaleString()}
                   </th>
                 </tr>
               </thead>
