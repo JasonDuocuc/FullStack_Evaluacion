@@ -1,14 +1,20 @@
 function Servicios(){
   return(
-    <section id="sectionServicios" className="my-5">
+    <section id="sectionServicios" className="py-5 p-5" style={{
+    backgroundColor: '#a0a0a0ff',
+    padding: '50px 0',
+    borderTop: '3px solid #838181ff',
+    borderBottom: '3px solid #e0e0e0',
+    textShadow:'2px 2px 8px rgba(0,0,0,0.6)'
+    }}>
       <div className="container text-center">
-        <h3 className="mb-4">Nuestros Servicios</h3>
+        <h3 className="mb-4" style={{ color:'white',textShadow:'2px 2px 8px rgba(0,0,0,0.6)'}}>Nuestros Servicios</h3>
 
         <div className="row row-cols-1 row-cols-md-3 g-4">
           <div className="col">
             <div className="card h-100">
               <div className="card-body">
-                <h5 className="card-title">Estudio energético</h5>
+                <h5 className="card-title" >Estudio energético</h5>
                 <p className="card-text">Analizamos tus consumos para ofrecerte la solución solar más eficiente.</p>
               </div>
             </div>
@@ -17,7 +23,7 @@ function Servicios(){
           <div className="col">
             <div className="card h-100">
               <div className="card-body">
-                <h5 className="card-title">Instalación certificada SEC</h5>
+                <h5 className="card-title" >Instalación certificada SEC</h5>
                 <p className="card-text">Nuestros técnicos cuentan con certificación SEC para garantizar seguridad y cumplimiento normativo.</p>
               </div>
             </div>
@@ -26,7 +32,7 @@ function Servicios(){
           <div className="col">
             <div className="card h-100">
               <div className="card-body">
-                <h5 className="card-title">Monitoreo</h5>
+                <h5 className="card-title" >Monitoreo</h5>
                 <p className="card-text">Supervisamos el rendimiento de tu sistema en tiempo real.</p>
               </div>
             </div>
@@ -35,7 +41,7 @@ function Servicios(){
           <div className="col">
             <div className="card h-100">
               <div className="card-body">
-                <h5 className="card-title">Mantención</h5>
+                <h5 className="card-title" >Mantención</h5>
                 <p className="card-text">Realizamos revisiones periódicas para asegurar la máxima eficiencia del sistema.</p>
               </div>
             </div>

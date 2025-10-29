@@ -171,11 +171,16 @@ function CalculadoraIntegral() {
 
 
   return (
-    <section id="demo_calculadora" className="py-5 bg-light text-center">
+    <section id="demo_calculadora" className="py-5 p-5" style={{
+    backgroundColor: '#f0f0f0ff',
+    padding: '50px 0',
+    borderTop: '3px solid #838181ff',
+    borderBottom: '3px solid #e0e0e0',textShadow:'2px 2px 8px rgba(0,0,0,0.6)'
+    }}>
       <div>
         <div className="row mt-3">
-          <div className="col-lg-12 text-center bg-secondary text-white rounded p-3">
-            <h3> DEMO Calculadora </h3>
+          <div className="col-lg-12 text-left">
+            <h3 style={{ color:'white',textShadow:'2px 2px 8px rgba(0,0,0,0.6)'}}> DEMO Calculadora </h3>
           </div>
         </div>
 

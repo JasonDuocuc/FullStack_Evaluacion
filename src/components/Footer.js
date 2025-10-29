@@ -1,10 +1,8 @@
-import React from "react";
-
 function Footer() {
   const año = new Date().getFullYear();
 
   return (
-    <footer className="bg-dark text-white text-center py-4">
+    <footer className="bg-dark text-white text-center py-5 p-5" style={{textShadow:'2px 2px 8px white'}}>
       <div className="container">
         <p className="mb-1">© {año} HelioAndes. Todos los derechos reservados.</p>
         <p className="mb-0">

@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 function NavbarPrincipal() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary " style={{textShadow:'2px 2px 8px rgba(0,0,0,0.6)'}} >
       <Container>
         <Navbar.Brand href="#home" style={{textAlign:'left'}}>
           <img src='/assets/HelioAndes.png' style={{ width: '15%',textAlign:'center'}}/>
@@ -19,7 +19,7 @@ function NavbarPrincipal() {
             <Nav.Link href="#demo_calculadora" style={{fontSize:'1.2rem'}}>DEMO</Nav.Link>  
             <Nav.Link href="#sectionPlanes" style={{fontSize:'1.2rem'}}>Planes</Nav.Link>  
             <Nav.Link href="#sectionTestimonios" style={{fontSize:'1.2rem'}}>Testimonios</Nav.Link>  
-            <Nav.Link href="#sectionFAQ" style={{fontSize:'1.2rem'}}>FAQ</Nav.Link>  
+            <Nav.Link href="#sectionFaq" style={{fontSize:'1.2rem'}}>FAQ</Nav.Link>  
             <Nav.Link href="#sectionContacto" style={{fontSize:'1.2rem'}}>Contacto</Nav.Link>  
 
           </Nav>

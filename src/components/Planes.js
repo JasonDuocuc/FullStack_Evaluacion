@@ -1,10 +1,14 @@
-import React from "react";
-
 function Planes() {
   return (
-    <section id="sectionPlanes" style={{backgroundColor:'#f8f9fa'}}>
+    <section id="sectionPlanes" className="py-5 p-5" style={{
+    backgroundColor: '#a0a0a0ff',
+    padding: '50px 0',
+    borderTop: '3px solid #838181ff',
+    borderBottom: '3px solid #e0e0e0',
+    textShadow:'2px 2px 8px rgba(0,0,0,0.6)'
+    }} >
       <div className="container my-4">
-        <h3 className="text-center my-3">Planes</h3>
+        <h3 className="text-center my-3" style={{ color:'white',textShadow:'2px 2px 8px rgba(0,0,0,0.6)'}}>Planes</h3>
 
         <div className="row g-4">
           <div className="col-lg-4 col-md-6 col-12">
