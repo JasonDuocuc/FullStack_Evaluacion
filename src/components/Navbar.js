@@ -1,11 +1,12 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import '../App.css';
 
 
 function NavbarPrincipal() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary " style={{textShadow:'2px 2px 8px rgba(0,0,0,0.6)'}} >
+    <Navbar expand="lg" className="navbar-personalizado" style={{textShadow:'2px 2px 8px rgba(0,0,0,0.6)'}} >
       <Container>
         <Navbar.Brand href="#home" style={{textAlign:'left'}}>
           <img src='/assets/HelioAndes.png' style={{ width: '15%',textAlign:'center'}}/>

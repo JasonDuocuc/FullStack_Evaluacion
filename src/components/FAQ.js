@@ -31,7 +31,7 @@ function FAQPrincipal() {
             </h2>
             <div
               id="collapse1"
-              className="accordion-collapse collapse show"
+              className="accordion-collapse collapse hide"
               aria-labelledby="heading1"
               data-bs-parent="#accordion1"
             >
@@ -64,7 +64,7 @@ function FAQPrincipal() {
             </h2>
             <div
               id="collapse2"
-              className="accordion-collapse collapse show"
+              className="accordion-collapse collapse hide"
               aria-labelledby="heading2"
               data-bs-parent="#accordion2"
             >
@@ -94,7 +94,7 @@ function FAQPrincipal() {
             </h2>
             <div
               id="collapse3"
-              className="accordion-collapse collapse show"
+              className="accordion-collapse collapse hide"
               aria-labelledby="heading3"
               data-bs-parent="#accordion3"
             >
@@ -123,7 +123,7 @@ function FAQPrincipal() {
             </h2>
             <div
               id="collapse4"
-              className="accordion-collapse collapse show"
+              className="accordion-collapse collapse hide"
               aria-labelledby="heading4"
               data-bs-parent="#accordion4"
             >
@@ -153,7 +153,7 @@ function FAQPrincipal() {
             </h2>
             <div
               id="collapse5"
-              className="accordion-collapse collapse show"
+              className="accordion-collapse collapse hide"
               aria-labelledby="heading5"
               data-bs-parent="#accordion5"
             >
@@ -182,7 +182,7 @@ function FAQPrincipal() {
             </h2>
             <div
               id="collapse6"
-              className="accordion-collapse collapse show"
+              className="accordion-collapse collapse hide"
               aria-labelledby="heading6"
               data-bs-parent="#accordion6"
             >

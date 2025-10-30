@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Table } from "react-bootstrap";
+import '../App.css';
 
 function CalculadoraIntegral() {
   const [potenciaPanel, setPotenciaPanel] = useState(null);
@@ -172,6 +173,7 @@ function CalculadoraIntegral() {
 
   return (
     <section id="demo_calculadora" className="py-5 p-5" style={{
+      color:'black',
     backgroundColor: '#f0f0f0ff',
     padding: '50px 0',
     borderTop: '3px solid #838181ff',
@@ -461,7 +463,7 @@ function CalculadoraIntegral() {
             <div className="form-group mt-3" style={{ textAlign: "left" }}>
               <button
                 type="button"
-                class="btn btn-dark me-2"
+                class="btn btn-moderno"
                 onClick={botonReset}
               >
                 Reiniciar

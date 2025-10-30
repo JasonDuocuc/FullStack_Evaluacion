@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -13,7 +12,16 @@ import FAQPrincipal from './components/FAQ';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{
+    backgroundImage: "linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/assets/fondo_web.gif')",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundAttachment: 'fixed',
+    backgroundRepeat: 'no-repeat',
+    minHeight: '100vh',
+    color: 'white',
+    textShadow: '1px 1px 6px rgba(0,0,0,0.8)',
+  }}>
       <div className="container">
         <Navbar/>
         <Hero/>

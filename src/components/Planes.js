@@ -1,3 +1,4 @@
+import '../App.css';
 function Planes() {
   return (
     <section id="sectionPlanes" className="py-5 p-5" style={{
@@ -23,7 +24,7 @@ function Planes() {
                   <li>Instalación inicial</li>
                   <li>Garantía básica</li>
                 </ul>
-                <a href="#contacto" className="btn btn-dark mt-2">Solicitar evaluación</a>
+                <a href="#contacto" className="btn btn-moderno mt-2">Solicitar evaluación</a>
               </div>
             </div>
           </div>
@@ -40,7 +41,7 @@ function Planes() {
                   <li>Monitoreo básico</li>
                   <li>Garantía extendida</li>
                 </ul>
-                <a href="#contacto" className="btn btn-dark mt-2">Solicitar evaluación</a>
+                <a href="#contacto" className="btn btn-moderno mt-2">Solicitar evaluación</a>
               </div>
             </div>
           </div>
@@ -57,7 +58,7 @@ function Planes() {
                   <li>Optimización por horarios</li>
                   <li>Soporte prioritario</li>
                 </ul>
-                <a href="#contacto" className="btn btn-dark mt-2">Solicitar evaluación</a>
+                <a href="#contacto" className="btn btn-moderno mt-2">Solicitar evaluación</a>
               </div>
             </div>
           </div>
