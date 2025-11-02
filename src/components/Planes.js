@@ -24,7 +24,7 @@ function Planes() {
                   <li>Instalación inicial</li>
                   <li>Garantía básica</li>
                 </ul>
-                <a href="#contacto" className="btn btn-moderno mt-2">Solicitar evaluación</a>
+                <a href="#sectionContacto" className="btn btn-moderno mt-2">Solicitar evaluación</a>
               </div>
             </div>
           </div>
@@ -41,7 +41,7 @@ function Planes() {
                   <li>Monitoreo básico</li>
                   <li>Garantía extendida</li>
                 </ul>
-                <a href="#contacto" className="btn btn-moderno mt-2">Solicitar evaluación</a>
+                <a href="#sectionContacto" className="btn btn-moderno mt-2">Solicitar evaluación</a>
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@ function Planes() {
                   <li>Optimización por horarios</li>
                   <li>Soporte prioritario</li>
                 </ul>
-                <a href="#contacto" className="btn btn-moderno mt-2">Solicitar evaluación</a>
+                <a href="#sectionContacto" className="btn btn-moderno mt-2">Solicitar evaluación</a>
               </div>
             </div>
           </div>
