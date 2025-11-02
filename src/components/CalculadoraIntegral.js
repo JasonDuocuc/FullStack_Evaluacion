@@ -553,13 +553,13 @@ function CalculadoraIntegral() {
               <thead>
                 <tr>
                   <th>Cuota</th>
-                  <th>{`${
+                  <th>{
                     resultadoPlanPago === 1
                       ? "Contado"
                       : resultadoPlanPago * 6 +
                         " cuotas de $" +
                         cuota.toLocaleString()
-                  }`}</th>
+                  }</th>
                 </tr>
               </thead>
               <thead>

@@ -8,6 +8,7 @@ import Soluciones from './components/Soluciones';
 import Planes from './components/Planes';
 import Testimonios from './components/Testimonios';
 import FAQPrincipal from './components/FAQ';
+import Contacto from './components/Contacto';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Planes/>
         <Testimonios/>
         <FAQPrincipal/>
+        <Contacto/>
         <Footer/>
 
       </div>
